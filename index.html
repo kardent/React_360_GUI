@@ -29,13 +29,13 @@
     <div id="container"></div>
 
     <form>
-      <p><label for="">X</label> <input type="text" name="x" id="" value="0"></p>
-      <p><label for="">Y</label> <input type="text" name="y" id="" value="0"></p>
-      <p><label for="">Z</label> <input type="text" name="z" id="" value="-120"></p>
+      <p><label for="">X</label> <input type="range" min="-500" max="500" name="x" value="0" onchange="updateTextInput(this.value, 'x-txt');"><input type="text" id="x-txt"></p>
+      <p><label for="">Y</label> <input type="range" min="-500" max="500" name="y" value="0" onchange="updateTextInput(this.value, 'y-txt');"><input type="text" id="y-txt"></p>
+      <p><label for="">Z</label> <input type="range" min="-500" max="500" name="z" value="-120" onchange="updateTextInput(this.value, 'z-txt');"><input type="text" id="z-txt"></p>
       
-      <p><label for="">RX</label> <input type="range" min="0" max="360" name="rx" id="" value="0"></p>
-      <p><label for="">RY</label> <input type="range" min="0" max="360" name="ry" id="" value="0"></p>
-      <p><label for="">RZ</label> <input type="range" min="0" max="360" name="rz" id="" value="0"></p>
+      <p><label for="">RX</label> <input type="range" min="0" max="360" name="rx" value="0" onchange="updateTextInput(this.value, 'rx-txt');"><input type="text" id="rx-txt"></p>
+      <p><label for="">RY</label> <input type="range" min="0" max="360" name="ry" value="0" onchange="updateTextInput(this.value, 'ry-txt');"><input type="text" id="ry-txt"></p>
+      <p><label for="">RZ</label> <input type="range" min="0" max="360" name="rz" value="0" onchange="updateTextInput(this.value, 'rz-txt');"><input type="text" id="rz-txt"></p>
     </form>
 
     <script src="./client.bundle?platform=vr"></script>
@@ -48,6 +48,11 @@
           assetRoot: 'static_assets/',
         }
       );
+
+      function updateTextInput(val, el) {
+        console.log(val)
+          document.getElementById(el).value=val; 
+        }
     </script>
   </body>
 </html>
