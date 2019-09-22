@@ -23,7 +23,7 @@ export default class React_360_GUI extends React.Component {
 
       positionX: 0,
       positionY: 0,
-      positionZ: 0,
+      positionZ: -120,
 
       positionRX: 0,
       positionRY: 0,
@@ -50,11 +50,11 @@ export default class React_360_GUI extends React.Component {
     // Rotation    
     RCTDeviceEventEmitter.addListener('inputSubmit-rx', (event) => {
       event = parseInt(event);
-      this.setState({positionRZ: event})
+      this.setState({positionRX: event})
     })  
     RCTDeviceEventEmitter.addListener('inputSubmit-ry', (event) => {
       event = parseInt(event);
-      this.setState({positionRZ: event})
+      this.setState({positionRY: event})
     })  
     RCTDeviceEventEmitter.addListener('inputSubmit-rz', (event) => {
       event = parseInt(event);
@@ -66,7 +66,7 @@ export default class React_360_GUI extends React.Component {
     const {batteryLevel, inputs} = this.state;
 
     let greetingBox = {
-      padding: 20,
+      padding: 5,
       backgroundColor: '#000000',
       borderColor: '#639dda',
       borderWidth: 2,
@@ -88,6 +88,7 @@ export default class React_360_GUI extends React.Component {
       // <View style={styles.panel}>
         <View style={greetingBox}>
           {/* <VrButton> POOP </VrButton> */}
+          {this.positionRZ}
         </View>
       // </View>
     );
