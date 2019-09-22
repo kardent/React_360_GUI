@@ -27,7 +27,7 @@ export default class React_360_GUI extends React.Component {
 
       positionRX: 0,
       positionRY: 0,
-      positionRZ: 60,
+      positionRZ: 0,
     }
     
   }
