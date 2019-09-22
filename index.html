@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>React_360_GUI</title>
+    <style>
+      body { 
+        margin: 0; 
+        display: flex
+      }
+      #container{
+        width: 400px !important;
+        height: 400px !important;
+        position: relative !important;
+      }
+      #container div, canvas{
+        width: 400px !important;
+        height: 400px !important;
+      }
+      #container div:nth-child(2){
+        display: none;       
+      }
+      form{         
+        margin: 1rem;
+      }
+      </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  </head>
+  <body>
+    <!-- Attachment point for your app -->
+    <div id="container"></div>
+
+    <form>
+      <p><label for="">X</label> <input type="text" name="x" id=""></p>
+      <p><label for="">Y</label> <input type="text" name="y" id=""></p>
+      <p><label for="">Z</label> <input type="text" name="z" id=""></p>
+      
+      <p><label for="">RX</label> <input type="text" name="rx" id=""></p>
+      <p><label for="">RY</label> <input type="text" name="ry" id=""></p>
+      <p><label for="">RZ</label> <input type="text" name="rz" id=""></p>
+    </form>
+
+    <script src="./client.bundle?platform=vr"></script>
+    <script>
+      // Initialize the React 360 application
+      React360.init(
+        'index.bundle?platform=vr&dev=true',
+        document.getElementById('container'),
+        {
+          assetRoot: 'static_assets/',
+        }
+      );
+    </script>
+  </body>
+</html>
+
