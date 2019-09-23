@@ -4,6 +4,7 @@ import {
   NativeModules,
   StyleSheet,
   Text,
+  Image,
   View,
   VrButton,
 } from 'react-360';
@@ -69,10 +70,13 @@ export default class React_360_GUI extends React.Component {
   render() {
 
     let popup = {
-      padding: 5,
-      backgroundColor: '#000000',
-      borderColor: '#639dda',
-      borderWidth: 2,
+      borderColor: '#242324',
+      borderWidth: 1,
+      width: 44,
+      height: 44,
+      backgroundColor: '#242324',
+      borderRadius: 25,
+      layoutOrigin: [0, 0],
   
       position: 'absolute',
       // 'transform' is evaluated last-to-first - this rotates before translating
@@ -89,25 +93,25 @@ export default class React_360_GUI extends React.Component {
     
     return (
       
-        <View style={popup}>
-          {/* <VrButton> POOP </VrButton> */}
-        </View>
+        <VrButton style={popup}>
+          <Image source={{uri: 'static_assets/photo.png'}} style={styles.iconStyle}></Image>
+        </VrButton>
     );
   }
 };
 
 const styles = StyleSheet.create({
-  panel: {
-    // Fill the entire surface
-    width: 1000,
-    height: 600,
-    backgroundColor: 'rgba(255, 255, 255, 0.4)',
-    justifyContent: 'center',
-    alignItems: 'center',
+  button: {
+    width: 44,
+    height: 44,
+    layoutOrigin: [0, 0],
   },
 
-  greeting: {
-    fontSize: 12,
+  iconStyle: {
+    layoutOrigin: [0,0],
+    width: 40,
+    height: 40,
+    margin: 1,
   },
 });
 
