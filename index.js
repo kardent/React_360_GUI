@@ -18,8 +18,8 @@ export default class React_360_GUI extends React.Component {
     super();
 
     this.state = {
-      batteryLevel: 0,
       inputs: "",
+      model: true,
 
       positionX: 0,
       positionY: 0,
@@ -60,12 +60,15 @@ export default class React_360_GUI extends React.Component {
       event = parseInt(event);
       this.setState({positionRZ: event})
     })
+    RCTDeviceEventEmitter.addListener('inputSubmit-model', (event) => {
+      event = (event == "true");
+      this.setState({model: event})
+    })
   }
 
   render() {
-    const {batteryLevel, inputs} = this.state;
 
-    let greetingBox = {
+    let popup = {
       padding: 5,
       backgroundColor: '#000000',
       borderColor: '#639dda',
@@ -83,14 +86,12 @@ export default class React_360_GUI extends React.Component {
         {rotateZ: this.state.positionRZ},
       ]
     }
-
+    
     return (
-      // <View style={styles.panel}>
-        <View style={greetingBox}>
+      
+        <View style={popup}>
           {/* <VrButton> POOP </VrButton> */}
-          {this.positionRZ}
         </View>
-      // </View>
     );
   }
 };
@@ -106,7 +107,7 @@ const styles = StyleSheet.create({
   },
 
   greeting: {
-    fontSize: 30,
+    fontSize: 12,
   },
 });
 

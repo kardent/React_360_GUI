@@ -13,9 +13,17 @@ export default class InputModule extends Module {
     this.userAgent = navigator.userAgent;
 
     addEventListener('input', function (event) {
-        console.log(event.srcElement.name)
+        console.log(event.srcElement.type)
+        let value = false;
 
-        ctx.callFunction('RCTDeviceEventEmitter', 'emit', ['inputSubmit-' + event.srcElement.name, event.target.value])
+        if(event.srcElement.type == "checkbox"){
+          value = true;
+        }
+        else{
+          value = event.target.value;
+        }
+
+        ctx.callFunction('RCTDeviceEventEmitter', 'emit', ['inputSubmit-' + event.srcElement.name, value])
     });
 
 }

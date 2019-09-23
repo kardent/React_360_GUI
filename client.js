@@ -22,6 +22,17 @@ function init(bundle, parent, options = {}) {
 
   // Load the initial environment
   r360.compositor.setBackground(r360.getAssetURL('background.jpg'));
+
+  let i_input = document.getElementById("initial_rotation");
+  i_input.addEventListener('input', function (event) {
+
+    let y = event.target.value
+    let halfY = y / 2
+    r360._cameraQuat[0] = 0
+    r360._cameraQuat[1] = Math.sin(halfY)
+    r360._cameraQuat[2] = 0
+    r360._cameraQuat[3] = Math.cos(halfY)
+  });
 }
 
 window.React360 = {init};

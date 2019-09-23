@@ -7,13 +7,13 @@
         display: flex
       }
       #container{
-        width: 400px !important;
-        height: 400px !important;
+        width: 80vw !important;
+        height: 100vh !important;
         position: relative !important;
       }
       #container div, canvas{
-        width: 400px !important;
-        height: 400px !important;
+        width: 80vw !important;
+        height: 100vh !important;
       }
       #container div:nth-child(2){
         display: none;       
@@ -29,13 +29,16 @@
     <div id="container"></div>
 
     <form>
-      <p><label for="">X</label> <input type="range" min="-500" max="500" name="x" value="0" onchange="updateTextInput(this.value, 'x-txt');"><input type="text" id="x-txt"></p>
-      <p><label for="">Y</label> <input type="range" min="-500" max="500" name="y" value="0" onchange="updateTextInput(this.value, 'y-txt');"><input type="text" id="y-txt"></p>
-      <p><label for="">Z</label> <input type="range" min="-500" max="500" name="z" value="-120" onchange="updateTextInput(this.value, 'z-txt');"><input type="text" id="z-txt"></p>
+      <p><label for="">Initial Rotation</label> <input type="range" min="0" step="0.05" max="6" id="initial_rotation" name="i" value="0" oninput="updateTextInput(this.value, 'i-txt');"><input value="0" type="text" id="i-txt"></p>
+      <p><label>Model View</label> <input type="checkbox" name="model" id="" oninput="updateTextInput(this.value, 'model-txt');"></p>
+
+      <p><label for="">X</label> <input type="range" min="-500" max="500" name="x" value="0" oninput="updateTextInput(this.value, 'x-txt');"><input value="0" type="text" id="x-txt"></p>
+      <p><label for="">Y</label> <input type="range" min="-500" max="500" name="y" value="0" oninput="updateTextInput(this.value, 'y-txt');"><input value="0" type="text" id="y-txt"></p>
+      <p><label for="">Z</label> <input type="range" min="-500" max="500" name="z" value="-120" oninput="updateTextInput(this.value, 'z-txt');"><input value="-120" type="text" id="z-txt"></p>
       
-      <p><label for="">RX</label> <input type="range" min="0" max="360" name="rx" value="0" onchange="updateTextInput(this.value, 'rx-txt');"><input type="text" id="rx-txt"></p>
-      <p><label for="">RY</label> <input type="range" min="0" max="360" name="ry" value="0" onchange="updateTextInput(this.value, 'ry-txt');"><input type="text" id="ry-txt"></p>
-      <p><label for="">RZ</label> <input type="range" min="0" max="360" name="rz" value="0" onchange="updateTextInput(this.value, 'rz-txt');"><input type="text" id="rz-txt"></p>
+      <p><label for="">RX</label> <input type="range" min="0" max="360" name="rx" value="0" oninput="updateTextInput(this.value, 'rx-txt');"><input value="0" type="text" id="rx-txt"></p>
+      <p><label for="">RY</label> <input type="range" min="0" max="360" name="ry" value="0" oninput="updateTextInput(this.value, 'ry-txt');"><input value="0" type="text" id="ry-txt"></p>
+      <p><label for="">RZ</label> <input type="range" min="0" max="360" name="rz" value="0" oninput="updateTextInput(this.value, 'rz-txt');"><input value="0" type="text" id="rz-txt"></p>
     </form>
 
     <script src="./client.bundle?platform=vr"></script>
@@ -51,8 +54,8 @@
 
       function updateTextInput(val, el) {
         console.log(val)
-          document.getElementById(el).value=val; 
-        }
+        document.getElementById(el).value=val; 
+      }
     </script>
   </body>
 </html>
